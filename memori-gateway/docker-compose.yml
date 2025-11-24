@@ -1,0 +1,44 @@
+version: "3.9"
+
+services:
+  memori-gateway:
+    build:
+      context: ..
+      dockerfile: memori-gateway/Dockerfile
+    image: memori-gateway:latest
+    restart: unless-stopped
+    environment:
+      MEMORI_DB_DSN: ${MEMORI_DB_DSN}
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      GATEWAY_API_KEY: ${GATEWAY_API_KEY}
+      MEMORI_DEFAULT_MODEL: ${MEMORI_DEFAULT_MODEL:-gpt-4o-mini}
+      MEMORI_AUTO_INGEST: ${MEMORI_AUTO_INGEST:-true}
+      MEMORI_CONSCIOUS_INGEST: ${MEMORI_CONSCIOUS_INGEST:-false}
+    networks:
+      - dokploy-network
+    ports:
+      - "8000:8000"
+    command: ["python", "-m", "app", "http"]
+
+  memori-gateway-mcp:
+    build:
+      context: ..
+      dockerfile: memori-gateway/Dockerfile
+    image: memori-gateway:latest
+    restart: unless-stopped
+    environment:
+      MEMORI_DB_DSN: ${MEMORI_DB_DSN}
+      OPENAI_API_KEY: ${OPENAI_API_KEY}
+      GATEWAY_API_KEY: ${GATEWAY_API_KEY}
+      MEMORI_DEFAULT_MODEL: ${MEMORI_DEFAULT_MODEL:-gpt-4o-mini}
+      MEMORI_AUTO_INGEST: ${MEMORI_AUTO_INGEST:-true}
+      MEMORI_CONSCIOUS_INGEST: ${MEMORI_CONSCIOUS_INGEST:-false}
+    networks:
+      - dokploy-network
+    command: ["python", "-m", "app", "mcp"]
+    deploy:
+      replicas: 0
+
+networks:
+  dokploy-network:
+    external: true

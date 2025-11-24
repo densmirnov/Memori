@@ -40,14 +40,19 @@
       "id": "T-003",
       "title": "Add Docker + compose deployment",
       "description": "Create the Dockerfile, docker-compose.yml, requirements, and README notes so the MVP can run via docker-compose up with MEMORI + OpenAI env vars.",
-      "status": "TODO",
+      "status": "DONE",
       "priority": "med",
       "owner": "CODER",
       "tags": [
         "gateway",
         "infra"
       ],
-      "comments": []
+      "comments": [
+        {
+          "author": "CODER",
+          "body": "Added requirements, Dockerfile, docker-compose.yml, and README explaining gateway + Memori stack with external Supabase, validating the spec via docs/llms.txt."
+        }
+      ]
     }
   ]
 }
