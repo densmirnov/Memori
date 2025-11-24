@@ -22,14 +22,19 @@
       "id": "T-002",
       "title": "Add FastAPI and MCP wrappers",
       "description": "Implement @memori-gateway/app/http_api.py (API key auth, /chat, /health) and @memori-gateway/app/mcp_server.py to expose the chat_with_memory tool while delegating to the shared core.",
-      "status": "DOING",
+      "status": "DONE",
       "priority": "med",
       "owner": "CODER",
       "tags": [
         "gateway",
         "api"
       ],
-      "comments": []
+      "comments": [
+        {
+          "author": "CODER",
+          "body": "FastAPI + MCP layers added with CLI entrypoint and verified via python -m compileall memori-gateway/app."
+        }
+      ]
     },
     {
       "id": "T-003",
