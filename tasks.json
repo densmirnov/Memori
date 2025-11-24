@@ -1,0 +1,43 @@
+{
+  "tasks": [
+    {
+      "id": "T-001",
+      "title": "Build memori-gateway core logic",
+      "description": "Install shared @memori-gateway/app/core.py dataclasses and chat_with_memory path so HTTP and MCP both use the same Memori + OpenAI workflow, including namespace handling and optional debug metadata.",
+      "status": "TODO",
+      "priority": "med",
+      "owner": "CODER",
+      "tags": [
+        "gateway",
+        "core"
+      ],
+      "comments": []
+    },
+    {
+      "id": "T-002",
+      "title": "Add FastAPI and MCP wrappers",
+      "description": "Implement @memori-gateway/app/http_api.py (API key auth, /chat, /health) and @memori-gateway/app/mcp_server.py to expose the chat_with_memory tool while delegating to the shared core.",
+      "status": "TODO",
+      "priority": "med",
+      "owner": "CODER",
+      "tags": [
+        "gateway",
+        "api"
+      ],
+      "comments": []
+    },
+    {
+      "id": "T-003",
+      "title": "Add Docker + compose deployment",
+      "description": "Create the Dockerfile, docker-compose.yml, requirements, and README notes so the MVP can run via docker-compose up with MEMORI + OpenAI env vars.",
+      "status": "TODO",
+      "priority": "med",
+      "owner": "CODER",
+      "tags": [
+        "gateway",
+        "infra"
+      ],
+      "comments": []
+    }
+  ]
+}
