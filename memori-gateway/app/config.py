@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from pydantic import Field
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class GatewaySettings(BaseSettings):
@@ -13,11 +13,14 @@ class GatewaySettings(BaseSettings):
     memori_default_model: str = Field("gpt-4o-mini", env="MEMORI_DEFAULT_MODEL")
     memori_auto_ingest: bool = Field(True, env="MEMORI_AUTO_INGEST")
     memori_conscious_ingest: bool = Field(False, env="MEMORI_CONSCIOUS_INGEST")
+    gateway_http_port: int = Field(8000, env="GATEWAY_HTTP_PORT")
 
-    class Config:
-        env_file = ".env"
-        env_file_encoding = "utf-8"
-        case_sensitive = True
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        case_sensitive=True,
+        extra="ignore",
+    )
 
 
 settings = GatewaySettings()
