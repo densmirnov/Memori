@@ -14,9 +14,10 @@ RUN apt-get update \
 # Copy repository (Memori core + gateway)
 COPY . /app
 
-# Install dependencies
+# Install dependencies (gateway requirements + local Memori SDK)
 RUN pip install --upgrade pip \
-    && pip install --no-cache-dir -r memori-gateway/requirements.txt
+    && pip install --no-cache-dir -r memori-gateway/requirements.txt \
+    && pip install --no-cache-dir -e .
 
 WORKDIR /app/memori-gateway
 
