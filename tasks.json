@@ -4,14 +4,19 @@
       "id": "T-001",
       "title": "Build memori-gateway core logic",
       "description": "Install shared @memori-gateway/app/core.py dataclasses and chat_with_memory path so HTTP and MCP both use the same Memori + OpenAI workflow, including namespace handling and optional debug metadata.",
-      "status": "TODO",
+      "status": "DONE",
       "priority": "med",
       "owner": "CODER",
       "tags": [
         "gateway",
         "core"
       ],
-      "comments": []
+      "comments": [
+        {
+          "author": "CODER",
+          "body": "Implemented the shared core/config and sanity-checked with python -m compileall memori-gateway/app."
+        }
+      ]
     },
     {
       "id": "T-002",
