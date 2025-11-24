@@ -53,6 +53,24 @@
           "body": "Added requirements, Dockerfile, docker-compose.yml, and README explaining gateway + Memori stack with external Supabase, validating the spec via docs/llms.txt."
         }
       ]
+    },
+    {
+      "id": "T-004",
+      "title": "Allow configurable gateway port",
+      "description": "Make the memori-gateway HTTP service port configurable via environment variables in docker-compose and document it.",
+      "status": "DONE",
+      "priority": "low",
+      "owner": "CODER",
+      "tags": [
+        "gateway",
+        "infra"
+      ],
+      "comments": [
+        {
+          "author": "CODER",
+          "body": "Gateway port now driven by GATEWAY_HTTP_PORT env plus README notes; also fixed BaseSettings import via pydantic-settings per new runtime error."
+        }
+      ]
     }
   ]
 }

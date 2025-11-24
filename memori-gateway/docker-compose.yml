@@ -14,10 +14,12 @@ services:
       MEMORI_DEFAULT_MODEL: ${MEMORI_DEFAULT_MODEL:-gpt-4o-mini}
       MEMORI_AUTO_INGEST: ${MEMORI_AUTO_INGEST:-true}
       MEMORI_CONSCIOUS_INGEST: ${MEMORI_CONSCIOUS_INGEST:-false}
+      PORT: ${GATEWAY_HTTP_PORT:-8000}
+      HOST: 0.0.0.0
     networks:
       - dokploy-network
     ports:
-      - "8000:8000"
+      - "${GATEWAY_HTTP_PORT:-8000}:${GATEWAY_HTTP_PORT:-8000}"
     command: ["python", "-m", "app", "http"]
 
   memori-gateway-mcp:

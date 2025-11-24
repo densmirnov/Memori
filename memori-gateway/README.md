@@ -21,6 +21,7 @@ GATEWAY_API_KEY=change-me
 MEMORI_DEFAULT_MODEL=gpt-4o-mini
 MEMORI_AUTO_INGEST=true
 MEMORI_CONSCIOUS_INGEST=false
+GATEWAY_HTTP_PORT=8000
 ```
 
 These map directly to the `Memori` constructor flags and API key guards exposed in `app/config.py`, keeping the behaviour identical between the HTTP API and MCP tool.
@@ -32,7 +33,7 @@ cd memori-gateway
 docker compose --project-name memori up -d
 ```
 
-- `memori-gateway` – HTTP API listening on `0.0.0.0:8000` for `/chat` and `/health`.
+- `memori-gateway` – HTTP API listening on `0.0.0.0:${GATEWAY_HTTP_PORT:-8000}` for `/chat` and `/health`.
 - `memori-gateway-mcp` – optional MCP server that runs the same `chat_with_memory` logic over stdio. Scale it up only when you need IDE/Cursor integration.
 
 > The compose file expects an existing external `dokploy-network` where Supabase/Postgres is already reachable. No extra database container is created here.
